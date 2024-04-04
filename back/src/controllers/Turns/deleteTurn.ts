@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { deleteTurnServices } from "../../services/Turns/deleteTurnServices";
+import { deleteTurnServices } from "../../services/indexServices/turnService";
 
 export const deleteTurns = async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
