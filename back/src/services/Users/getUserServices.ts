@@ -1,7 +1,7 @@
 import { userModel } from "../../config/repository";
 import { User } from "../../entities/User";
 
-/* ↓ Esta funcion sirve para buscar a todos los usuarios con relacion a los turnos de cada uno  ↓ */
+/* ↓ Funcion para buscar todos los usuarios  ↓ */
 
 export const getUserServices = async (): Promise<User[]> => {
     const users: User[] = await userModel.find({
@@ -10,8 +10,7 @@ export const getUserServices = async (): Promise<User[]> => {
     return users;
 }
 
-/* ↓ Esta funcion sirve para buscar el usuario por ID tomando en cuenta la relacion de los turnos 
-y lanzando un error para evitar problemas al momento de no encontrar al usuario ya que puede ser null ↓ */
+/* ↓ Funcion para buscar usuario por id ↓ */
 
 export const getUserIdServices = async (id: number): Promise<User> => {
     const userId: User | null = await userModel.findOne({
