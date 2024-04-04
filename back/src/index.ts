@@ -13,7 +13,7 @@ const startServer = async () => {
     } catch (error) {
         console.error("Error al iniciar el servidor:", error)
     }
-
 }
+startServer();
 
 
