@@ -2,24 +2,31 @@
 
 Una pagina para gestionar turnos
 
+## Run Locally
 
-## Installation
-
-Install my-project with npm
+Clone the project
 
 ```bash
-  npm install my-project
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
   cd my-project
 ```
-    
-## Deployment
 
-To deploy this project run
+Install dependencies
 
 ```bash
-  npm run deploy
+  npm install
 ```
 
+Start the server
+
+```bash
+  npm run start
+```
 
 ## Authors
 
