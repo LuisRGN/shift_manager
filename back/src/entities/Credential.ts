@@ -12,6 +12,6 @@ export class Credential {
     @Column()
     password: string
 
-    @OneToOne(() => User, user => user.credential)
+    @OneToOne(() => User, user => user.credential, { onDelete: "CASCADE" })
     user: User
 }
