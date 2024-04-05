@@ -17,7 +17,7 @@ export class User {
     @Column("integer", { unique: true })
     dni: number
 
-    @OneToOne(() => Credential, credential => credential.user, { cascade: true })
+    @OneToOne(() => Credential, credential => credential.user, { onDelete: "CASCADE" })
     @JoinColumn()
     credential: Credential
 
