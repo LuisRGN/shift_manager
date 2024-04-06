@@ -14,6 +14,6 @@ export class Turn {
     @Column({ default: "active" })
     status: string
 
-    @ManyToOne(() => User, user => user.turns)
+    @ManyToOne(() => User, user => user.turns, { onDelete: "CASCADE" })
     user: User
 }
