@@ -21,6 +21,6 @@ export class User {
     @JoinColumn()
     credential: Credential
 
-    @OneToMany(() => Turn, turn => turn.user)
+    @OneToMany(() => Turn, turn => turn.user, { onDelete: "CASCADE" })
     turns: Turn
 }
