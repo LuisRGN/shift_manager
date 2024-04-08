@@ -1,5 +1,7 @@
-import { Request, Response } from "express"
-import { deleteUserServices } from "../../services/indexServices/userServices"
+import { Request, Response } from "express";
+import { deleteUserServices } from "../../services/indexServices/userServices";
+
+/* ↓ Funcion del controlador para eliminar el usuario, sus credenciales y sus turnos ↓ */
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;

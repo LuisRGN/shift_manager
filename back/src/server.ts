@@ -1,6 +1,6 @@
-import express from "express"
-import cors from "cors"
-import morgan from "morgan"
+import express from "express";
+import cors from "cors";
+import morgan from "morgan";
 import { indexRouter } from "./routes/indexRouter";
 
 export const server = express();

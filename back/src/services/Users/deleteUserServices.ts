@@ -1,7 +1,7 @@
 import { credentialModel, turnModel, userModel } from "../../config/repository";
 import { User } from "../../entities/User";
 
-/* ↓ Funcion para eliminar el usuario y sus credenciales ↓ */
+/* ↓ Funcion del servicio para eliminar el usuario, sus credenciales y sus turnos ↓ */
 
 export const deleteUserServices = async (userId: number): Promise<void> => {
 

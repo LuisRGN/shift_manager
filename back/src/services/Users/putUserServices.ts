@@ -2,6 +2,8 @@ import { userModel } from "../../config/repository";
 import { Credential } from "../../entities/Credential";
 import { User } from "../../entities/User";
 
+/* ↓ Funcion del servicio para modificar los  datos del usuario ↓ */
+
 export const putChangeServices = async (userId: number, userData: Partial<User>, credentialData: Partial<Credential>) => {
     await userModel.manager.transaction(async managerTranscion => {
 
@@ -22,7 +24,7 @@ export const putChangeServices = async (userId: number, userData: Partial<User>,
         if (userData.dni) {
             updateUser.dni = userData.dni
         }
-        await managerTranscion.save(updateUser)
+        await managerTranscion.save(updateUser);
 
         if (updateUser.credential) {
             if (credentialData.username) {
@@ -31,7 +33,7 @@ export const putChangeServices = async (userId: number, userData: Partial<User>,
             if (credentialData.password) {
                 updateUser.credential.password = credentialData.password
             }
-            await managerTranscion.save(updateUser.credential)
-        }
-    })
-}
+            await managerTranscion.save(updateUser.credential);
+        };
+    });
+};

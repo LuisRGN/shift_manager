@@ -1,6 +1,6 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm"
-import { Credential } from "./Credential"
-import { Turn } from "./Turn"
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Credential } from "./Credential";
+import { Turn } from "./Turn";
 
 @Entity({
     name: "users"
@@ -23,4 +23,4 @@ export class User {
 
     @OneToMany(() => Turn, turn => turn.user, { onDelete: "CASCADE" })
     turns: Turn
-}
+};
