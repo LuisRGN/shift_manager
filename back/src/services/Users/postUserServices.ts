@@ -18,8 +18,8 @@ export const postReisterServices = async (userDto: userDto): Promise<User> => {
 
 /* ↓ Funcion que loguea al usuario ↓ */
 
-export const postLoginServices = async (credentials: number) => {
-    const findUser = await userModel.findOneBy({
+export const postLoginServices = async (credentials: number): Promise<User | null> => {
+    const findUser: User | null = await userModel.findOneBy({
         credential: { id: credentials }
     });
     return findUser;

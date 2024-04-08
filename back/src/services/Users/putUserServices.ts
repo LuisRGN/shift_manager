@@ -4,7 +4,9 @@ import { User } from "../../entities/User";
 
 export const putChangeServices = async (userId: number, userData: Partial<User>, credentialData: Partial<Credential>) => {
     await userModel.manager.transaction(async managerTranscion => {
-        const updateUser = await managerTranscion.getRepository(User).findOne({ where: { id: userId }, relations: ["credential"] });
+
+        const updateUser: User | null = await managerTranscion.getRepository(User).findOne({ where: { id: userId }, relations: ["credential"] });
+
         if (!updateUser) {
             throw Error("No se encontro al usuario")
         }
