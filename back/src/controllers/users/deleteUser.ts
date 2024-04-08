@@ -9,6 +9,6 @@ export const deleteUser = async (req: Request, res: Response): Promise<void> => 
         await deleteUserServices(Number(id));
         res.json({ message: "Usuario eliminado" })
     } catch (error) {
-        res.status(400).json({ message: "No se pude eliminar al usuario" })
+        res.status(400).json({ message: "No se pude eliminar al usuario", error })
     };
 };
