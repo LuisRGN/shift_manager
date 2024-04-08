@@ -10,7 +10,7 @@ export const getTurnServices = async (): Promise<Turn[]> => {
 
 /* ↓ Funcion que trae un turno por id ↓ */
 
-export const getTurnIdServices = async (id: number) => {
-    const turn = await turnModel.findOne({ where: { id }, relations: { user: true } });
+export const getTurnIdServices = async (id: number): Promise<Turn | null> => {
+    const turn: Turn | null = await turnModel.findOne({ where: { id }, relations: { user: true } });
     return turn
 }

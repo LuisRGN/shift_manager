@@ -4,9 +4,9 @@ import { deleteUserServices } from "../../services/indexServices/userServices"
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
     try {
-        const deleted = await deleteUserServices(Number(id));
+        await deleteUserServices(Number(id));
         res.json({ message: "Usuario eliminado" })
-    } catch (error: any) {
-        res.status(400).json({ message: error.message })
+    } catch (error) {
+        res.status(400).json({ message: "No se pude eliminar al usuario" })
     };
 };
