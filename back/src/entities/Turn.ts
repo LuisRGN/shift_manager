@@ -1,5 +1,5 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
-import { User } from "./User"
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./User";
 
 @Entity({
     name: "turns"
@@ -16,4 +16,4 @@ export class Turn {
 
     @ManyToOne(() => User, user => user.turns, { onDelete: "CASCADE" })
     user: User
-}
+};

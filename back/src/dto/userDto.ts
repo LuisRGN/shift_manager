@@ -5,4 +5,4 @@ export interface userDto {
     dni: number,
     username: string,
     password: string
-}
+};

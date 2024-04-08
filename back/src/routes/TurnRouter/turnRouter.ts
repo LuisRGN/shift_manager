@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { deleteTurns, getTurnId, getTurns, postTurns, putTurns } from "../../controllers/IndexControllers/turnsController"
+import { deleteTurns, getTurnId, getTurns, postTurns, putTurns } from "../../controllers/IndexControllers/turnsController";
 
 export const turns: Router = Router();
 
