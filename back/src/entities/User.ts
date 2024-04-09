@@ -22,5 +22,5 @@ export class User {
     credential: Credential
 
     @OneToMany(() => Turn, turn => turn.user, { onDelete: "CASCADE" })
-    turns: Turn
+    turns: Turn[]
 };
