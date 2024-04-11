@@ -9,6 +9,8 @@ import Turns from './views/Turns/Turns'
 import Contact from './views/Contact/Contact'
 import Error from './views/Error/Error'
 import About from './views/About/About'
+import Profile from './views/Profile/Profile'
+import { ProfileModify } from './views/Profile/ProfileModify'
 
 const App = () => {
 
@@ -19,6 +21,8 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/Register' element={<Register/>} />
         <Route path='/Login' element={<Login/>} />
+        <Route path='/Profile' element={<Profile/>}/>
+        <Route path='/ProfileModify' element={<ProfileModify/>}/>
         <Route path='/Turns' element={<Turns/>} />
         <Route path='/Contact' element={<Contact/>} />
         <Route path='/About' element={<About/>} />

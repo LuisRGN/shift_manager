@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    gap: 1rem;
+    background-color: #334155;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    width: 20rem;
+    display: grid;
+    justify-items: center;
+
+    .enviar {
+        cursor: pointer;
+    }
+
+}
+
+.p {
+    aspect-ratio: 10/1;
+}

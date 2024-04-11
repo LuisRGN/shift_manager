@@ -1,9 +1,10 @@
 import React from "react";
+import { SliceAbout } from "../../components/Slide/SliceAbout";
 
 const About = () => {
     return (
         <>
-        <h1>ABOUT</h1>
+        <SliceAbout/>
         </>
     )
 }

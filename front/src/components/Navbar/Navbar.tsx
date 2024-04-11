@@ -26,12 +26,12 @@ return (
             <span>CONTACTO</span>
          </NavLink>
          <NavLink to={"/About"} className={({ isActive}) => isActive ? styles.active : ""}>
-            <span>SOBRE</span>
+            <span>SOBRE LA WEB</span>
          </NavLink>
          <NavLink to={"/Login"} >
             <span>INICIAR SESIÓN</span>
          </NavLink>
-        <NavLink to={"/Login"}>
+        <NavLink to={"/Profile"}>
         <img src={avatar} alt="avatar" className={styles.avatar} />
         </NavLink>
          
