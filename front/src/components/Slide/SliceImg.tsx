@@ -11,8 +11,8 @@ import vallhala from "../../assets/img/valhalla2.jpg"
 
 const SliceImg = () => {
     return (
-        <div className={styles.div}>
-    <div className={styles.container}>
+    <div className={styles.div}>
+       <div className={styles.container}>
         <div className={styles.inner}>
             <div className={styles.tag}><img src={duty} alt=""/></div>
             <div className={styles.tag}><img src={dark} alt="" /></div>
