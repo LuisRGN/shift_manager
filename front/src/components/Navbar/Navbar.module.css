@@ -1,0 +1,40 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: burlywood;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.234);
+    color: white;
+    padding: 1rem;
+    align-items: center;
+}
+
+.links {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.active span {
+    color: burlywood;
+}
+
+.avatar {
+    width: 3.5rem;
+    border-radius: 10rem;
+    margin: 0 1.5rem 0 1rem;
+}
+
+.logo {
+    width: 11rem;
+    margin: 0 1.5rem 0 1rem;
+    border-radius: 1.5rem;
+}
