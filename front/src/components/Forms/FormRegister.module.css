@@ -1,21 +1,87 @@
 .container {
-    margin: 1rem;
+    margin: 2rem;
     display: flex;
     justify-content: center;
 }
 
 .form {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50rem;
     background-color: #334155;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+
+    h3 {
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.356);
+        transition: background-color 0.3s ease;
+    }
+
+    h3:hover {
+        background-color: rgba(0, 0, 0, 0.179);
+    }
 }
 
 .divs {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 1rem;
     gap: 1rem;
+}
+
+.div1 {
+    text-align: center;
+    color: white;
+
+    h2 {
+        background-color: rgb(166, 122, 66);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+    }
+}
+
+.div2 {
+    display: flex;
+
+    label {
+        font-size: 1.1rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+
+    input {
+        border-radius: 0.3rem;
+        background-color: rgba(255, 255, 255, 0.668);
+    }
+}
+
+.div3 {
+    display: flex;
+
+    label {
+        font-size: 1.1rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+
+    input {
+        border-radius: 0.3rem;
+        background-color: rgba(255, 255, 255, 0.668);
+    }
+}
+
+.div4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enviar {
+    cursor: pointer;
+    border-radius: 0.5rem;
 }
