@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: #334155;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+
+    .enviar {
+        cursor: pointer;
+        border-radius: 0.5rem;
+    }
+
+}
+
+.divs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    label {
+        font-size: 1.1rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+
+    textarea {
+        background-color: rgba(255, 255, 255, 0.668);
+        border-radius: 0.5rem;
+        box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+    }
+}
+
+.div0 {
+    display: flex;
+    justify-content: center;
+    color: white;
+
+    h2 {
+        background-color: rgb(166, 122, 66);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+    }
+}
+
+.div1 {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    label {
+        font-size: 1.1rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+
+    input {
+        border-radius: 0.3rem;
+        background-color: rgba(255, 255, 255, 0.668);
+    }
+}
