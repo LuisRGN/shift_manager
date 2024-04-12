@@ -6,8 +6,9 @@ import { NavLink } from 'react-router-dom'
 const ProfileCard = () => {
   return (
     <div>
-      <div>
-        <h1>Perfil de usuario</h1>
+      <div className={styles.container}>
+        <div className={styles.div1}>
+          <h1>Perfil de usuario</h1>
         <img src={avatar} alt="avatar" className={styles.avatar}/>
         <h2>Nombre</h2>
         <h2>Correo</h2>
@@ -20,7 +21,7 @@ const ProfileCard = () => {
         </NavLink>
       
         <button>borrar usuario</button>
-
+        </div>
       </div>
     </div>
   )
