@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
-import styles from "./Form.module.css"
+import styles from "./FormLogin.module.css"
 
 const FormLogin = () => {
     const [input, setInput] = useState({

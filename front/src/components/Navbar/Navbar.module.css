@@ -1,6 +1,11 @@
 a {
     text-decoration: none;
     color: white;
+    transition: color 0.3s ease;
+
+    span {
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
 }
 
 a:hover {
@@ -32,6 +37,7 @@ a:hover {
     border-radius: 10rem;
     margin: 0 1.5rem 0 1rem;
     aspect-ratio: 1/1;
+    box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
 }
 
 .logo {
@@ -39,4 +45,5 @@ a:hover {
     margin: 0 1.5rem 0 1rem;
     border-radius: 1.5rem;
     aspect-ratio: 3/1;
+    box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
 }

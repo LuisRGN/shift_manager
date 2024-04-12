@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import styles from "./FormProfileModify.module.css"
+import { useNavigate } from 'react-router-dom'
 
 export const FormProfileModify = () => {
+    const navigate = useNavigate();
+
     const [input, setInput] = useState({
         name: "",
         email: "",
@@ -26,14 +30,17 @@ export const FormProfileModify = () => {
             username:""
         });
         alert("Datos cambiados correctamente")
+        navigate("/Profile")
     }
 
   return (
-    <div>
         <div>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <h2>Cambie los datos que quiera modificar</h2>
+            <div className={styles.container}>
+                <form onSubmit={handleSubmit} className={styles.form}>
+                    <div className={styles.div1}>
+                       <h2>Cambie los datos que quiera modificar</h2> 
+                    </div>
+                    
                     <label htmlFor="name">Nombre</label>
                     <input type="text" id="name" name="name" value={input.name} onChange={handleChange} autoComplete='off' />
 
@@ -49,11 +56,10 @@ export const FormProfileModify = () => {
                     <label htmlFor="username">Nombre de usuario</label>
                     <input type="text" id='username' name='username' value={input.username} onChange={handleChange} autoComplete='off'/>
 
-                    <input type="submit" value="Enviar"/>
+                    <input type="submit" value="Enviar" className={styles.enviar}/>
                     
                 </form>
             </div>
         </div>
-    </div>
   )
 }

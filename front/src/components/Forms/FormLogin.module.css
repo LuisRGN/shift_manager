@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    gap: 1rem;
+    background-color: #334155;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    width: 20rem;
+    display: grid;
+    justify-items: center;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+
+    h2 {
+        background-color: rgb(166, 122, 66);
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+        color: white;
+    }
+
+    label {
+        font-size: 1.1rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+
+    input {
+        border-radius: 0.3rem;
+        background-color: rgba(255, 255, 255, 0.668);
+    }
+
+    .enviar {
+        cursor: pointer;
+        border-radius: 0.5rem;
+    }
+
+    h3 {
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.356);
+        transition: background-color 0.3s ease;
+    }
+
+    h3:hover {
+        background-color: rgba(0, 0, 0, 0.179);
+    }
+}
+
+.p {
+    aspect-ratio: 10/1;
+}
