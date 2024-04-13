@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styles from "./FormRegister.module.css"
-import { POST_LOGIN_URL } from '../../config/UrlConfig';
+import axios from "axios"
+import { POST_REGISTER_URL } from '../../config/UrlConfig';
 
-const LOGIN_URL = POST_LOGIN_URL;
+const REGISTER_URL = POST_REGISTER_URL;
 
 const FormRegister: React.FC = () => {
+    const navigate = useNavigate();
+
     const [input, setInput] = useState({
         name: "",
         email: "",
@@ -22,17 +25,21 @@ const FormRegister: React.FC = () => {
         })
     }
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setInput({
-            name: "",
-            email: "",
-            birthdate: "",
-            dni: "",
-            username:"",
-            password: ""
-        });
+        try {
+            const response = await axios.post(REGISTER_URL, input)
+            console.log("Registrado", response.data.email)
+        } catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+             console.error(error.message)
+            if (error.response && error.response.status === 400) {
+                alert("Nombre de usuario, correo o dni ya existen")
+            }   
+            }
+        }
         alert("Formulario enviado correctamente")
+        navigate("/Login")
     }
 
     const allFiledsComplete = Object.values(input).every(value => value.trim() !== "")
