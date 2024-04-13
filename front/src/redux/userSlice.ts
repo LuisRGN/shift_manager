@@ -1,7 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { PayloadAction, createSlice } from "@reduxjs/toolkit"
+import { Turn, UserState } from "../interfaces/interfaces";
 
-const initialState = {
-    userData: {},
+const initialState: UserState = {
+    userData: null,
     turnsData: []
 }
 
@@ -14,9 +15,12 @@ const userSlice = createSlice({
         },
         setUserTurns: (state, action) => {
             state.turnsData = action.payload
+        },
+        addTurn: (state, action: PayloadAction<Turn>) => {
+            state.turnsData.push(action.payload)
         }
     }
 })
 
-export const { setUserData, setUserTurns } = userSlice.actions
+export const { setUserData, setUserTurns, addTurn } = userSlice.actions
 export default userSlice.reducer;

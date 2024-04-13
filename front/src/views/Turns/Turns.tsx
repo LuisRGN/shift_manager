@@ -6,27 +6,11 @@ import { useNavigate } from "react-router-dom";
 import { setUserTurns } from "../../redux/userSlice";
 import { TurnsCard } from "../../components/TurnsCard/TurnsCard";
 import { AddTurn } from "../../components/AddTurn/AddTurn";
+import styles from "./Turns.module.css"
+import { State, Turn } from "../../interfaces/interfaces";
 
 const USER_ID_URL = GET_USER_ID_URL;
 const TURN_CANCEL_URL = PUT_TURNS_URL;
-
-interface State {
-    user: {
-        userData: {
-            user: {
-                id: number;
-            }
-        },
-        turnsData: Turn[];
-    }
-}
-
-interface Turn {
-    id: number;
-    date: Date;
-    time: string;
-    status: string;
-}
 
 const Turns = () => {
     const dispatch = useDispatch();
@@ -76,15 +60,16 @@ const Turns = () => {
 
     return (
         <div>
-            <h1>Mis Resrevas</h1>
+            <h1>Mis Reservas</h1>
             <button onClick={() => setModalOpen(true)} >Agregar nuevo turno</button>
-            <div>
+            <div className={styles.cards}>
                 {turns.length ? turns.map((turn: Turn) => (
                     <TurnsCard 
                     key={turn.id}
                     id={turn.id}
                     date={turn.date}
                     time={turn.time}
+                    description={turn.description}
                     status={turn.status}
                     handleCancel={handleCancel}
                     />

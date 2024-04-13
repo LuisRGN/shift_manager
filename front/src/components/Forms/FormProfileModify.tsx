@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
+import axios from "axios"
 import styles from "./FormProfileModify.module.css"
 import { useNavigate } from 'react-router-dom'
+import { PUT_USER_URL } from '../../config/UrlConfig'
+import { useSelector } from 'react-redux'
+import { State } from '../../interfaces/interfaces'
+
+const PUT_URL = PUT_USER_URL;
 
 export const FormProfileModify: React.FC = () => {
     const navigate = useNavigate();
+    const userId = useSelector((state: State) => state.user?.userData?.user?.id)
 
     const [input, setInput] = useState({
         name: "",
         email: "",
         birthdate: "",
-        dni: "",
-        username:""
+        dni: ""
     })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,17 +26,23 @@ export const FormProfileModify: React.FC = () => {
         })
     }
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setInput({
-            name: "",
-            email: "",
-            birthdate: "",
-            dni: "",
-            username:""
-        });
-        alert("Datos cambiados correctamente")
-        navigate("/Profile")
+        try {
+            const response = await axios.put(PUT_URL + userId, input)
+            console.log(response.data)
+            alert("Datos cambiados correctamente")
+            
+            navigate("/Profile")
+        } catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                console.error(error.message)
+               if (error.response && error.response.status === 400) {
+                   alert("Nombre de usuario, correo o dni ya existen")
+               }   
+               }
+        }
+        
     }
 
   return (
@@ -52,9 +64,6 @@ export const FormProfileModify: React.FC = () => {
 
                     <label htmlFor="dni">D.N.I</label>
                     <input type="number" id='dni' name='dni' value={input.dni} onChange={handleChange} autoComplete='off'/>
-
-                    <label htmlFor="username">Nombre de usuario</label>
-                    <input type="text" id='username' name='username' value={input.username} onChange={handleChange} autoComplete='off'/>
 
                     <input type="submit" value="Enviar" className={styles.enviar}/>
                     

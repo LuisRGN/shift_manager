@@ -11,6 +11,8 @@ export class Turn {
     date: Date
     @Column()
     time: string
+    @Column()
+    description: string
     @Column({ default: "active" })
     status: string
 

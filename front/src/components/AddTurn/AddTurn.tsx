@@ -1,32 +1,23 @@
 import React, { useState } from 'react'
 import axios from "axios"
 import { POST_TURNS_URL } from '../../config/UrlConfig'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import styles from "./AddTurn.module.css"
+import { addTurn} from '../../redux/userSlice';
+import { AddTurnProps, State, Turn } from '../../interfaces/interfaces';
 
 const POST_TURN_URL = POST_TURNS_URL;
-interface AddTurnProps {
-    isOpen: boolean;
-    closeModal: () => void;
-}
-interface State {
-    user: {
-        userData: {
-            user: {
-                id: number;
-            }
-        }
-    }
-}
 
 export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
     
     const userId = useSelector((state: State) => state.user?.userData?.user?.id);
+    const dispatch = useDispatch();
 
     const [input, setInput] = useState({
         date: "",
-        time: ""
+        time: "",
+        description: ""
     })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -51,10 +42,15 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
         event.preventDefault();
         setInput({
             date: "",
-            time: "" 
+            time: "" ,
+            description: ""
         })
-        const newTurn = {
-            ...input, userId 
+        const newTurn: Turn = {
+            id: userId,
+            date: new Date(input.date),
+            time: input.time,
+            description: input.description,
+            status: "Active"
         }
         if (disableWeekends(input.date)){
             alert("No se pueden programar citas para sábados o domingos")
@@ -71,7 +67,7 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
         }
         try {
         const response = await axios.post(POST_TURN_URL, newTurn)
-        console.log(response.data)
+        dispatch(addTurn(response.data as Turn))
         alert("Formulario enviado correctamente")
         closeModal();
     } catch (error: unknown) {
@@ -123,8 +119,11 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
                         <option value="17:00">17:00</option>
                 </select>
                 <p style={{visibility: input.time === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
+                <label htmlFor="description">Descripcion</label>
+                <input type="text" name="description" id="description" value={input.description} onChange={handleChange} />
+                <p style={{visibility: input.description === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
 
-                <input type="submit" value="Enviar" disabled={!input.date || !input.time}/>
+                <input type="submit" value="Enviar" disabled={!input.date || !input.time || !input.description}/>
             </form>
         </div>
     </div>
