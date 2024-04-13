@@ -1,3 +1,8 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -15,12 +20,12 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
 
-    h2 {
-        background-color: rgb(166, 122, 66);
+    h1 {
         border-radius: 0.5rem;
         padding: 0.5rem;
-        box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
-        color: white;
+        color: burlywood;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+        font-size: 2rem;
     }
 
     label {
@@ -51,6 +56,18 @@
     }
 }
 
-.p {
-    aspect-ratio: 10/1;
+.war {
+    filter: contrast(80%);
+    width: 16%;
+    margin-top: 1rem;
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+}
+
+.war2 {
+    filter: contrast(80%);
+    width: 16%;
+    margin-top: 1rem;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
 }
