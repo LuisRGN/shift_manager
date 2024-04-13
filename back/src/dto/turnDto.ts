@@ -1,5 +1,6 @@
 export interface turnDto {
-    date: Date,
+    date: Date
     time: string
+    description: string
     userId: number
 };
