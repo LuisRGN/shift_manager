@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from "./FormProfileModify.module.css"
 import { useNavigate } from 'react-router-dom'
 
-export const FormProfileModify = () => {
+export const FormProfileModify: React.FC = () => {
     const navigate = useNavigate();
 
     const [input, setInput] = useState({
@@ -13,14 +13,14 @@ export const FormProfileModify = () => {
         username:""
     })
 
-    const handleChange = (event) => {
-        const {name, value } = event.target;
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value } = event.target as HTMLInputElement;
         setInput({
             ...input,[name]: value
         })
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setInput({
             name: "",
@@ -38,7 +38,7 @@ export const FormProfileModify = () => {
             <div className={styles.container}>
                 <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={styles.div1}>
-                       <h2>Cambie los datos que quiera modificar</h2> 
+                       <h1>Cambie los datos que quiera modificar</h1> 
                     </div>
                     
                     <label htmlFor="name">Nombre</label>

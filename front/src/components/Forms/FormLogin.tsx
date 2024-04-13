@@ -1,21 +1,23 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import styles from "./FormLogin.module.css"
+import war from "../../assets/img/war.jpg"
+import war2 from "../../assets/img/war2.jpg"
 
-const FormLogin = () => {
+const FormLogin: React.FC = () => {
     const [input, setInput] = useState({
         username: "",
         password: ""
     })
 
-const handleChange = (event) => {
-    const {name, value} = event.target;
+const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = event.target as HTMLInputElement;
     setInput({
         ...input, [name]:value
     })
 }
 
-const handleSubmit = (event) => {
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setInput({
         username: "",
@@ -27,11 +29,11 @@ const handleSubmit = (event) => {
 const allFiledsComplete = Object.values(input).every(value => value.trim() !== "")
 
   return (
-    <div>
+    <div className={styles.main}>
+        <img src={war} alt="" className={styles.war}/>
         <div className={styles.container}>
-            <div>
                 <form onSubmit={handleSubmit} className={styles.form}>
-                    <h2>Inicio de sesion</h2>
+                    <h1>Inicio de sesion</h1>
                     <label htmlFor="username">Nombre de usuario</label>
                     <input type="text" name="username" id="username" value={input.username} onChange={handleChange}/>
                     <p style={{visibility: input.username === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
@@ -47,7 +49,7 @@ const allFiledsComplete = Object.values(input).every(value => value.trim() !== "
                     </NavLink>
                 </form>
             </div>
-        </div>
+            <img src={war2} alt="" className={styles.war2}/>
     </div>
   )
 }

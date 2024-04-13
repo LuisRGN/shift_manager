@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import avatar from "../../assets/avatar.jpeg"
 import styles from "./ProfileCard.module.css"
 import { NavLink } from 'react-router-dom'

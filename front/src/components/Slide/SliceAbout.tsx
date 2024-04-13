@@ -1,18 +1,18 @@
-import React from 'react'
+// import React from 'react'
 import styles from "./SliceAbout.module.css"
 import orm from "../../assets/imgT/orm.png"
 import redux from "../../assets/imgT/redux.webp"
 import typescript from "../../assets/imgT/typescript.png"
 import express from "../../assets/imgT/express.jpg"
 import postgres from "../../assets/imgT/postgres.png"
-import react from "/public/react.svg"
-import vite from "/public/vite.svg"
+import react from "/react.svg"
+import vite from "/vite.svg"
 
 export const SliceAbout = () => {
   return (
     <div className={styles.div}>
        <div className={styles.container}>
-        <h2>Tecnologias utilizadas</h2>
+        <h1>Tecnologias utilizadas</h1>
         <div className={styles.inner}>
             <div className={styles.tag}><img src={orm} alt=""/></div>
             <div className={styles.tag}><img src={redux} alt="" /></div>

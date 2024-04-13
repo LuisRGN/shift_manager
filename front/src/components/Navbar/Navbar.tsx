@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import styles from "./Navbar.module.css"
 import { NavLink } from "react-router-dom";
 import avatar from "../../assets/avatar.jpeg"
