@@ -1,10 +1,19 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import axios from "axios"
 import styles from "./FormLogin.module.css"
 import war from "../../assets/img/war.jpg"
 import war2 from "../../assets/img/war2.jpg"
+import { POST_LOGIN_URL } from '../../config/UrlConfig';
+import { useDispatch } from 'react-redux';
+import { setUserData } from '../../redux/userSlice';
+
+const LOGIN_URL = POST_LOGIN_URL;
 
 const FormLogin: React.FC = () => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [input, setInput] = useState({
         username: "",
         password: ""
@@ -17,13 +26,25 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     })
 }
 
-const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setInput({
-        username: "",
-        password: ""
-    })
+    try {
+    const response = await axios.post(LOGIN_URL, input)
+    const data = response.data
+    dispatch(setUserData(data))
     alert("Inicio de sesión exitoso")
+    navigate("/");
+    } catch (error: unknown) {
+        if (axios.isAxiosError(error)) {
+            console.error(error.message);
+            if (error.response && error.response.status === 400) {
+                alert("Usuario o contraseña incorrecto");
+            } else {
+                alert("Error de conexión o servidor");
+            }
+        }
+    }
+    
 }
 
 const allFiledsComplete = Object.values(input).every(value => value.trim() !== "")
