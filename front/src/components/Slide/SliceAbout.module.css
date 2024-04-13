@@ -12,9 +12,11 @@
     padding: 1rem;
 }
 
-.container h2 {
+.container h1 {
     display: flex;
     justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
 }
 
 .inner {
