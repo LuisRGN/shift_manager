@@ -10,7 +10,7 @@ export class Turn {
     @Column()
     date: Date
     @Column()
-    time: number
+    time: string
     @Column({ default: "active" })
     status: string
 
