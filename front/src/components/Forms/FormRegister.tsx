@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import styles from "./FormRegister.module.css"
+import { POST_LOGIN_URL } from '../../config/UrlConfig';
 
-const FormRegister = () => {
+const LOGIN_URL = POST_LOGIN_URL;
+
+const FormRegister: React.FC = () => {
     const [input, setInput] = useState({
         name: "",
         email: "",
@@ -12,14 +15,14 @@ const FormRegister = () => {
         password: ""
     })
 
-    const handleChange = (event) => {
-        const {name, value } = event.target;
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const {name, value } = event.target as HTMLInputElement;
         setInput({
             ...input,[name]: value
         })
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setInput({
             name: "",
@@ -42,7 +45,7 @@ const FormRegister = () => {
                 <form onSubmit={handleSubmit} className={styles.form}>
             
                       <div className={styles.div1}>
-                      <h2>Registro</h2>  
+                      <h1>Registro</h1>  
                     </div>
 
                 <div className={styles.div2}>
@@ -58,13 +61,14 @@ const FormRegister = () => {
                     <p style={{visibility: input.email === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
                     </div>
 
-                    <div className={styles.divs}>
+                    
+                </div>  
+
+                   <div className={styles.divs}>
                     <label htmlFor="birthdate">Fecha de nacimiento</label>
                     <input type="date" id='birthdate' name='birthdate' value={input.birthdate} onChange={handleChange}/>
                     <p style={{visibility: input.birthdate === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
                     </div> 
-                </div>  
-            
                     
 
                 <div className={styles.div3}>

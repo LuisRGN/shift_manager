@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styles from "./FormContact.module.css"
+import fallout from "../../assets/img/fallout.jpg"
+import gamin from "../../assets/img/gamin.jpg"
 
-export const FormContact = () => {
+export const FormContact: React.FC = () => {
     const [input, setInput] = useState({
         name: "",
         email: "",
@@ -9,14 +11,14 @@ export const FormContact = () => {
         message: ""
     })
 
-const handleChange = (event) => {
-    const {name, value} = event.target;
+const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const {name, value} = event.target as HTMLInputElement | HTMLTextAreaElement;
     setInput({
         ...input,[name]:value
     })
 }
 
-const handleSubmit = (event) => {
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setInput({
         name: "",
@@ -30,7 +32,8 @@ const handleSubmit = (event) => {
 const allFiledsComplete = Object.values(input).every(value => value.trim() !== "")
 
   return (
-    
+    <div className={styles.main}>
+        <img src={gamin} alt="" className={styles.war} />
         <div className={styles.container}>
           
                 <form onSubmit={handleSubmit} className={styles.form}>
@@ -60,7 +63,7 @@ const allFiledsComplete = Object.values(input).every(value => value.trim() !== "
                 </div>
                 <div className={styles.divs}>
                     <label htmlFor="message">Mensaje</label>
-                    <textarea name="message" id="message" cols="30" rows="3" value={input.message} onChange={handleChange}/>
+                    <textarea name="message" id="message" cols={30} rows={3} value={input.message} onChange={handleChange}/>
                     <p style={{visibility: input.message === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
                    
                     <input type="submit" value="Enviar" disabled={!allFiledsComplete} className={styles.enviar}/>
@@ -70,6 +73,8 @@ const allFiledsComplete = Object.values(input).every(value => value.trim() !== "
               
                 </form>
             </div>
+            <img src={fallout} alt="" className={styles.war2} />
+    </div>
   )
 }
 
