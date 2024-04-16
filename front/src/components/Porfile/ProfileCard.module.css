@@ -6,9 +6,8 @@
 }
 
 .div1 {
-    background-image: url("../../assets/img/areyou.jpg");
-    background-size: cover;
-    background-position: center;
+    background-image: linear-gradient(90deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(67.5deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(112.5deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(45deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(90deg, rgb(95, 3, 74), rgb(35, 65, 96));
+    background-blend-mode: overlay, overlay, overlay, overlay, normal;
     display: flex;
     flex-direction: column;
     align-items: center;
