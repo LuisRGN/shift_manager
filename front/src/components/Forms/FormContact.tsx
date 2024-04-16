@@ -41,7 +41,7 @@ const allFiledsComplete = Object.values(input).every(value => value.trim() !== "
                     <div className={styles.div0}>
                      <h2>Contactame</h2>   
                     </div>
-                <div className={styles.div1}>
+                
                     <div className={styles.divs}>
                         <label htmlFor="name">Nombre</label>
                         <input type="text" name="name" id="name" value={input.name} onChange={handleChange} />
@@ -60,7 +60,7 @@ const allFiledsComplete = Object.values(input).every(value => value.trim() !== "
                         <input type="number" name="phone" id="phone" value={input.phone} onChange={handleChange} />
                         <p style={{visibility: input.phone === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
                     </div>
-                </div>
+               
                 <div className={styles.divs}>
                     <label htmlFor="message">Mensaje</label>
                     <textarea name="message" id="message" cols={30} rows={3} value={input.message} onChange={handleChange}/>

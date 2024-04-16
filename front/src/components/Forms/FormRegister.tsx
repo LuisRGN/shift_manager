@@ -50,13 +50,13 @@ const FormRegister: React.FC = () => {
            
 
                 <form onSubmit={handleSubmit} className={styles.form}>
-            
+                <div className={styles.div0}>
                       <div className={styles.div1}>
-                      <h1>Registro</h1>  
-                    </div>
-
+                      <h2>Registro</h2>  
+                      </div>
                 <div className={styles.div2}>
-                       <div className={styles.divs}>
+                    <div className={styles.part1}>
+                    <div className={styles.divs}>
                     <label htmlFor="name">Nombre</label>
                     <input type="text" id="name" name="name" value={input.name} onChange={handleChange} />
                     <p style={{visibility: input.name === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
@@ -68,17 +68,14 @@ const FormRegister: React.FC = () => {
                     <p style={{visibility: input.email === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
                     </div>
 
-                    
-                </div>  
-
-                   <div className={styles.divs}>
+                    <div className={styles.divs}>
                     <label htmlFor="birthdate">Fecha de nacimiento</label>
                     <input type="date" id='birthdate' name='birthdate' value={input.birthdate} onChange={handleChange}/>
                     <p style={{visibility: input.birthdate === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
                     </div> 
+                    </div>
                     
-
-                <div className={styles.div3}>
+                    <div className={styles.part2}>
                     <div className={styles.divs}>
                     <label htmlFor="dni">D.N.I</label>
                     <input type="number" id='dni' name='dni' value={input.dni} onChange={handleChange} />
@@ -96,17 +93,18 @@ const FormRegister: React.FC = () => {
                     <input type="password" name="password" id="password" value={input.password} onChange={handleChange} />
                     <p style={{visibility: input.password === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
                     </div>
+                    </div>
                 </div>
                     
-                   <div className={styles.div4}>
+                    <div className={styles.div4}>
                     <input type="submit" value="Enviar" disabled={!allFiledsComplete} className={styles.enviar}/>
 
                     <NavLink to={"/Login"}>
                         <h3>¿Ya estas registrado? Inicia sesión aqui!</h3>
                     </NavLink>
                    </div>
-        
-                </form>
+                </div>
+            </form>
         </div>
    
   )

@@ -5,7 +5,6 @@
 }
 
 .form {
-    gap: 1rem;
     background-color: #334155;
     padding: 1rem;
     margin: 1rem;
@@ -16,7 +15,7 @@
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
 
-    h1 {
+    h2 {
         border-radius: 0.5rem;
         color: burlywood;
         text-shadow: 2px 2px 4px rgb(0, 0, 0);
