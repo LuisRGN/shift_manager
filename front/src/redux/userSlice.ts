@@ -18,9 +18,12 @@ const userSlice = createSlice({
         },
         addTurn: (state, action: PayloadAction<Turn>) => {
             state.turnsData.push(action.payload)
-        }
+        },
+        updateUserDetails: (state, action) => {
+            state.userData = { ...state.userData, ...action.payload };
+        },
     }
 })
 
-export const { setUserData, setUserTurns, addTurn } = userSlice.actions
+export const { setUserData, setUserTurns, addTurn, updateUserDetails } = userSlice.actions
 export default userSlice.reducer;
