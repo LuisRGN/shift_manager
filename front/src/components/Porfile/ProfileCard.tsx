@@ -12,20 +12,12 @@ import { setUserData, setUserTurns } from "../../redux/userSlice"
 const DELETE_USER = DELETE_USER_URL
 
 
+
 const ProfileCard = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userId = useSelector((state: State) => state.user?.userData?.user?.id)
-  const name = useSelector((state: State) => state.user?.userData?.user?.name)
-  const email = useSelector((state: State) => state.user?.userData?.user?.email)
-  const birthdate = useSelector((state: State) => state.user?.userData?.user?.birthdate)
-  const dni = useSelector((state: State) => state.user?.userData?.user?.dni)
-  
-  
-
-  useEffect(() => {
-    if (!userId) navigate("/")
- }, [navigate, userId])
+  const userData = useSelector((state: State) => state.user?.userData)
 
 const handleDelete = async () => {
    const confirmed = confirm("Vas a borrar al usuario, estas seguro!!")
@@ -45,6 +37,9 @@ const handleDelete = async () => {
   }
  }
 }
+useEffect(() => {
+  if (!userId) navigate("/Login")
+}, [navigate, userId])
 
   return (
     <div>
@@ -52,10 +47,12 @@ const handleDelete = async () => {
         <div className={styles.div1}>
           <h1>Perfil de usuario</h1>
         <img src={avatar} alt="avatar" className={styles.avatar}/>
-        <h2>{name}</h2>
-        <h2>{email}</h2>
-        <h2>{birthdate}</h2>
-        <h2>{dni}</h2>
+        <h2>{userData?.name ? userData.name : userData?.user?.name}</h2>
+        <h2>{userData?.email ? userData.email : userData?.user?.email}</h2>
+        <h2>{userData?.birthdate ? userData.birthdate : userData?.user?.birthdate}</h2>
+        <h2>{userData?.dni ? userData.dni : userData?.user?.dni }</h2>
+
+
 
         <NavLink to={"/ProfileModify"}>
          <button>Modificar datos</button> 
