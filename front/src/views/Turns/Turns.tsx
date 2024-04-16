@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
-import { GET_USER_ID_URL, PUT_TURNS_URL } from "../../config/UrlConfig";
+import { DELETE_TURNS_URL, GET_USER_ID_URL, PUT_TURNS_URL } from "../../config/UrlConfig";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUserTurns } from "../../redux/userSlice";
@@ -11,6 +11,7 @@ import { State, Turn } from "../../interfaces/interfaces";
 
 const USER_ID_URL = GET_USER_ID_URL;
 const TURN_CANCEL_URL = PUT_TURNS_URL;
+const DELETE_URL = DELETE_TURNS_URL;
 
 const Turns = () => {
     const dispatch = useDispatch();
@@ -56,6 +57,23 @@ const Turns = () => {
         }
     }
 
+    const handleDelete = async (turnsId: number) => {
+        try {
+            const response = await axios.delete(DELETE_URL + turnsId)
+            const data = response.data
+            console.log(data)
+            const refresh = await axios.get(USER_ID_URL + userId)
+            const turns = refresh.data.turns;
+            dispatch(setUserTurns(turns))
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                console.error("Error response:", error.response.data);
+            } else {
+                console.error("Error borrando el turno:", error);
+            }
+        }
+    }
+
     const closeModal = () => setModalOpen(false);
 
     return (
@@ -72,6 +90,7 @@ const Turns = () => {
                     description={turn.description}
                     status={turn.status}
                     handleCancel={handleCancel}
+                    handleDelete={handleDelete}
                     />
                 )): <h2>No hay turnos disponibles</h2>}
             </div>

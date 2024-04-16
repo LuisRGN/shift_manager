@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from "axios"
 import styles from "./FormProfileModify.module.css"
 import { useNavigate } from 'react-router-dom'
-import { PUT_USER_URL } from '../../config/UrlConfig'
+import { GET_USER_ID_URL, PUT_USER_URL } from '../../config/UrlConfig'
 import {  useDispatch, useSelector } from 'react-redux'
 import { State } from '../../interfaces/interfaces'
-import { setUserData } from '../../redux/userSlice'
+import { updateUserDetails } from '../../redux/userSlice'
 
 
 const PUT_URL = PUT_USER_URL;
+const GET_URL = GET_USER_ID_URL;
 
 export const FormProfileModify: React.FC = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const userId = useSelector((state: State) => state.user?.userData?.user?.id)
-
+    
     const [input, setInput] = useState({
         name: "",
         email: "",
@@ -33,22 +34,26 @@ export const FormProfileModify: React.FC = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const confirmed = confirm("Al cambiar los datos vas a cerrar sesion!!")
-            if(confirmed){
               try {
             const response = await axios.put(PUT_URL + userId, input)
-            dispatch(setUserData(response.data))
-            navigate("/")
+            response // para no tener error de la variable
+            const getResponse = await axios.get(GET_URL + userId)
+
+            dispatch(updateUserDetails(getResponse.data))
+            navigate("/Profile")
         } catch (error: unknown) {
             if (axios.isAxiosError(error)) {
                 console.error(error.message)
                if (error.response && error.response.status === 400) {
                    alert("No se pudieron modificar los datos")
                }   
-               }
-        }          
+               }          
     } 
 }
+
+useEffect(() => {
+    if (!userId) navigate("/Login")
+ }, [navigate, userId])
 
   return (
         <div>

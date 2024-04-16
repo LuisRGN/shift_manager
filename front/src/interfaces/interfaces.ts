@@ -44,4 +44,5 @@ export interface TursProps {
     description: string,
     status: string,
     handleCancel: (id: number) => void
+    handleDelete: (id: number) => void
 }

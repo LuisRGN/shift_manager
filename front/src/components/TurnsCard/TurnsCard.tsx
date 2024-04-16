@@ -2,7 +2,8 @@ import moment from "moment"
 import styles from "./TurnsCard.module.css"
 import { TursProps } from "../../interfaces/interfaces";
 
-export const TurnsCard = ({id, date, time, description, status, handleCancel}: TursProps) => {
+
+export const TurnsCard = ({id, date, time, description, status, handleCancel, handleDelete}: TursProps) => {
     const formattedDate = moment.utc(date).format("YYYY-MM-DD")
 
     const handleClik = () => {
@@ -27,6 +28,8 @@ export const TurnsCard = ({id, date, time, description, status, handleCancel}: T
   return (
     <div className={styles.main}>
         <div>
+      <button onClick={()=> handleDelete(id)}>X</button>
+
             <span>Fecha:</span>
             <span>{formattedDate}</span>
             <br />
