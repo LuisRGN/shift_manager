@@ -9,7 +9,6 @@
 }
 
 .form {
-    gap: 1rem;
     background-color: #334155;
     padding: 1rem;
     margin: 1rem;
@@ -30,8 +29,13 @@
 
     label {
         font-size: 1.1rem;
+        margin: 0.2rem;
         color: white;
         text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+
+    p {
+        margin: 0;
     }
 
     input {
