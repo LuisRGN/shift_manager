@@ -6,6 +6,8 @@ import moment from 'moment';
 import styles from "./AddTurn.module.css"
 import { addTurn} from '../../redux/userSlice';
 import { AddTurnProps, State, Turn } from '../../interfaces/interfaces';
+import Swal from 'sweetalert2';
+import { validateTurns } from '../../helpers/validateTurns';
 
 const POST_TURN_URL = POST_TURNS_URL;
 
@@ -19,11 +21,20 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
         time: "",
         description: ""
     })
+    const [errors, setError] = useState({
+        date: "",
+        time: "",
+        description: ""
+    })
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const {name, value} = event.target;
         setInput (prevInput => ({
             ...prevInput, [name]: value
+        }))
+        setError(prevError => ({
+            ...prevError,
+            [name]: validateTurns({...input,[name]:value})[name]
         }))
     }
 
@@ -53,28 +64,43 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
             status: "Active"
         }
         if (disableWeekends(input.date)){
-            alert("No se pueden programar citas para sábados o domingos")
+            Swal.fire({
+                title:"No se pueden programar citas para sábados o domingos",
+                icon: "warning"
+            })
             return
         }
 
         if (!input.date || moment(input.date).isBefore(moment().format("YYYY-MM-DD"))) {
-            alert("Seleciona una fecha valida")
+            Swal.fire({
+                title:"Seleciona una fecha valida",
+                icon: "warning"
+            })
             return
         }
         if (!input.time) {
-            alert("Eliga una hora")
+            Swal.fire({
+                title:"Eliga una hora",
+                icon: "warning"
+            })
             return
         }
         try {
         const response = await axios.post(POST_TURN_URL, newTurn)
         dispatch(addTurn(response.data as Turn))
-        alert("Formulario enviado correctamente")
+        Swal.fire({
+            title:"Formulario enviado correctamente",
+            icon: "success" 
+        })
         closeModal();
     } catch (error: unknown) {
         if(axios.isAxiosError(error)) {
            console.error(error.message)
             if (error.response && error.response.status === 400) {
-                alert("No se pudo enviar el formulario")
+                Swal.fire({
+                    title:"No se pudo enviar el formulario",
+                    icon:"error"
+                })
                 console.log(error)
             }  
         }
@@ -86,15 +112,14 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
     <div className={styles.backdrop}>
         <div className={styles.content}>
         <button onClick={closeModal} className={styles.button}>X</button>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.form}>
                 <h2>Crear un nuevo turno</h2>
                 <label htmlFor="date">Fecha</label>
                 <input type="date" name="date" id="date" value={input.date} onChange={handleChange}
                 min={moment().format("YYYY-MM-DD")}
                 disabled={disableWeekends(input.date)}/>
-                <br />
-                <button type="button" onClick={handleClearDate}>Limpiar fecha</button>
-                <p style={{visibility: input.date === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
+                <p style={{opacity: errors.date ? 1 : 0, minHeight: "20px" }}>{errors.date}</p>
+                <button type="button" onClick={handleClearDate} className={styles.enviar}>Limpiar fecha</button>
 
                 <label htmlFor="time">Hora</label>
                 <select name="time" id="time" value={input.time} onChange={handleChange}>
@@ -118,12 +143,12 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
                         <option value="16:30">16:30</option>
                         <option value="17:00">17:00</option>
                 </select>
-                <p style={{visibility: input.time === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
+                <p style={{opacity: errors.time ? 1 : 0, minHeight: "20px" }}>{errors.time}</p>
                 <label htmlFor="description">Descripcion</label>
                 <input type="text" name="description" id="description" value={input.description} onChange={handleChange} />
-                <p style={{visibility: input.description === "" ? 'visible' : 'hidden'}}>el campo esta vacio</p>
+                <p style={{opacity: errors.description ? 1 : 0, minHeight: "20px" }}>{errors.description}</p>
 
-                <input type="submit" value="Enviar" disabled={!input.date || !input.time || !input.description}/>
+                <input type="submit" value="Enviar" disabled={!input.date || !input.time || !input.description} className={styles.enviar}/>
             </form>
         </div>
     </div>

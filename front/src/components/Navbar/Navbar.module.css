@@ -3,9 +3,6 @@ a {
     color: white;
     transition: color 0.3s ease;
 
-    span {
-        text-shadow: 2px 2px 4px rgb(0, 0, 0);
-    }
 }
 
 a:hover {
@@ -21,6 +18,14 @@ a:hover {
     padding: 1rem;
     align-items: center;
     box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+
+    span {
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+    }
+
+    span:hover {
+        color: burlywood;
+    }
 }
 
 .links {

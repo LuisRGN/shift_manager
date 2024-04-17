@@ -65,6 +65,7 @@ const Turns = () => {
             const refresh = await axios.get(USER_ID_URL + userId)
             const turns = refresh.data.turns;
             dispatch(setUserTurns(turns))
+
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {
                 console.error("Error response:", error.response.data);
@@ -77,9 +78,9 @@ const Turns = () => {
     const closeModal = () => setModalOpen(false);
 
     return (
-        <div>
-            <h1>Mis Reservas</h1>
-            <button onClick={() => setModalOpen(true)} >Agregar nuevo turno</button>
+        <div className={styles.main}>
+            <h1>Mis Turnos</h1>
+            <button onClick={() => setModalOpen(true)} className={styles.enviar} >Agregar nuevo turno</button>
             <div className={styles.cards}>
                 {turns.length ? turns.map((turn: Turn) => (
                     <TurnsCard 

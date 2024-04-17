@@ -12,8 +12,8 @@
     display: flex;
     flex-direction: column;
     background-color: #334155;
-    padding: 1rem;
-    margin: 1rem;
+    padding: 2rem;
+    margin: 2rem;
     border-radius: 0.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
@@ -41,12 +41,22 @@
     input {
         border-radius: 0.3rem;
         background-color: rgba(255, 255, 255, 0.668);
+        transition: background-color 0.3s ease;
+    }
+
+    input:hover {
+        background-color: rgba(255, 255, 255, 0.478);
     }
 
     textarea {
         background-color: rgba(255, 255, 255, 0.668);
+        transition: background-color 0.3s ease;
         border-radius: 0.5rem;
         box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+    }
+
+    textarea:hover {
+        background-color: rgba(255, 255, 255, 0.478);
     }
 
     p {
@@ -65,6 +75,7 @@
         color: burlywood;
         text-shadow: 2px 2px 4px rgb(0, 0, 0);
         font-size: 2rem;
+        margin: 0;
     }
 }
 

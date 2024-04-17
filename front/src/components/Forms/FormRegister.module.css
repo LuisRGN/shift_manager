@@ -1,3 +1,14 @@
+.main0 {
+    background-image: url(../../assets/img/wallpaper.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 0.1rem;
+    display: flex;
+    height: 40.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .container {
     margin: 1rem;
     display: flex;
@@ -11,8 +22,8 @@
     align-items: center;
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.2rem #0000004a, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
-    padding: 0 3rem 0 3rem;
-    background-color: #334155b1;
+    padding: 1rem;
+    background-color: #334155;
 
     h3 {
         border-radius: 0.5rem;
@@ -53,6 +64,11 @@
     input {
         border-radius: 0.3rem;
         background-color: rgba(255, 255, 255, 0.668);
+        transition: background-color 0.3s ease;
+    }
+
+    input:hover {
+        background-color: rgba(255, 255, 255, 0.478);
     }
 }
 
@@ -66,6 +82,7 @@
         color: burlywood;
         text-shadow: 2px 2px 4px rgb(0, 0, 0);
         font-size: 2rem;
+        margin: 0;
     }
 }
 
