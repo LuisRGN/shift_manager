@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from "./FormContact.module.css"
 import fallout from "../../assets/img/fallout.jpg"
 import gamin from "../../assets/img/gamin.jpg"
+import Swal from 'sweetalert2'
 
 export const FormContact: React.FC = () => {
     const [input, setInput] = useState({
@@ -26,7 +27,11 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         phone: "",
         message: ""
     })
-    alert("Correo enviado correctamente")
+    Swal.fire({
+        title:"Correo enviado correctamente", 
+        icon: "success"
+    })
+
 }
 
 const allFiledsComplete = Object.values(input).every(value => value.trim() !== "")

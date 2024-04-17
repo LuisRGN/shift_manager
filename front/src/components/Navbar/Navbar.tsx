@@ -6,6 +6,7 @@ import avatar2 from "../../assets/avatar2.jpeg"
 import logo from "../../assets/logo.jpg"
 import { useDispatch, useSelector } from "react-redux";
 import { setUserData, setUserTurns } from "../../redux/userSlice";
+import Swal from "sweetalert2";
 
 interface State {
     user: {
@@ -21,12 +22,27 @@ const navigate = useNavigate()
 const dispatch = useDispatch()
 
 const handleLogout = () => {
-    const confirmed = confirm("Vas a cerrar sesión")
-    if(confirmed){
+    Swal.fire({
+        title: "Estas seguro?",
+        text: "Vas a cerrar sesión!!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, cerrar sesión!",
+        cancelButtonText: "Cancelar"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Confirmado",
+            text: "Sesión cerrada",
+            icon: "success"
+          });
         navigate("/")
         dispatch(setUserData({}))
         dispatch(setUserTurns([]))
-    }
+        }
+      });   
 }
 
 return (
@@ -59,7 +75,7 @@ return (
          
          {
           login  ?  <span onClick={handleLogout} className={styles.cursor}>CERRAR SESIÓN</span> :
-            <NavLink to={"/Login"} >
+            <NavLink to={"/Login"} className={({ isActive}) => isActive ? styles.active : ""}>
             <span>INICIAR SESIÓN</span>
             </NavLink> 
          }

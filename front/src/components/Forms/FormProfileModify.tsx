@@ -6,6 +6,7 @@ import { GET_USER_ID_URL, PUT_USER_URL } from '../../config/UrlConfig'
 import {  useDispatch, useSelector } from 'react-redux'
 import { State } from '../../interfaces/interfaces'
 import { updateUserDetails } from '../../redux/userSlice'
+import Swal from 'sweetalert2'
 
 
 const PUT_URL = PUT_USER_URL;
@@ -38,14 +39,20 @@ export const FormProfileModify: React.FC = () => {
             const response = await axios.put(PUT_URL + userId, input)
             response // para no tener error de la variable
             const getResponse = await axios.get(GET_URL + userId)
-
             dispatch(updateUserDetails(getResponse.data))
+            Swal.fire({
+                title:"Datos modificados correctamente",
+                icon: "success" 
+            })
             navigate("/Profile")
         } catch (error: unknown) {
             if (axios.isAxiosError(error)) {
                 console.error(error.message)
                if (error.response && error.response.status === 400) {
-                   alert("No se pudieron modificar los datos")
+                    Swal.fire({
+                        title:"No se pudieron modificar los datos",
+                        icon:"error" 
+                    })
                }   
                }          
     } 
