@@ -6,6 +6,7 @@ import styles from "./Games.module.css"
 export const Games = () => {
     const [games, setGames] = useState([]);
     const [selectedGenre, setSelectedGenre] = useState('All');
+    const [searchQuery, setSearchQuery] = useState("");
     
     const axiosGamesData = useCallback(async () => {
         const options = {
@@ -34,15 +35,32 @@ export const Games = () => {
         fetchGames();
     }, [axiosGamesData]);
 
-    const filteredGames = games.filter(game => selectedGenre === 'All' || game.genre === selectedGenre);
+    const filteredGames = games.filter(game =>
+        (selectedGenre === 'All' || game.genre === selectedGenre) &&
+        game.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
 
     const handleGenreChange = (event) => {
         setSelectedGenre(event.target.value);
     };
-
+    const handleButtonClick = (url) => {
+        window.open(url, '_blank');
+    };
+    
     return (
         <div>
-            <select value={selectedGenre} onChange={handleGenreChange}>
+           <div className={styles.mainSelect}>
+            <div className={styles.containerSelect}>
+             <div>
+                <input type="search" value={searchQuery} onChange={handleSearchChange}/>
+            </div> 
+            <div>
+             <select value={selectedGenre} onChange={handleGenreChange}>
                 <option value="All">Todos los géneros</option>
                 <option value="Shooter">Disparos</option>
                 <option value="ARPG">ARPG</option>
@@ -52,17 +70,27 @@ export const Games = () => {
                 <option value="MMORPG">MMORPG</option>
                 <option value="MMOARPG">MMOARPG</option>
                 <option value="Fighting">Pelea</option>
-                <option value="MOBA">MOBA</option>
-                {/* Agrega más opciones según los géneros disponibles */}
-            </select>
-            <div className={styles.mainGames}>
+                <option value="Card">Cartas</option>
+                <option value="Sports">Deportes</option>
+                <option value="Racing">Carreras</option>
+                <option value="Card Game">Juego de cartas</option>
+                <option value="MMO">MMO</option>
+                <option value="Social">Social</option>
+                <option value="Fantasy">Fantasia</option>
+                <option value="Battle Royale">Battle Royale</option>
+            </select>   
+            </div> 
+            </div>
+         </div>
+            <div className={styles.containerGame}>
+             <div className={styles.mainGames}>
             {filteredGames.map((game, index) => (
-                <div key={index}>
-                    <h2>{game.title}</h2>
+            <button key={index} className={styles.key} onClick={() => handleButtonClick(game.game_url)}>
                     <img src={game.thumbnail} alt={game.title} />
-                    <h2>{game.genre}</h2>
-                </div>
-            ))}</div>
+                    <h2>{game.title}</h2>
+            </button>
+            ))}</div>   
+            </div>
         </div>
     );
 };
