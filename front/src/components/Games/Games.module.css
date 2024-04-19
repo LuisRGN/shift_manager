@@ -1,5 +1,68 @@
+.mainSelect {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.containerSelect {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.55);
+    border-radius: 0.5rem;
+    align-items: center;
+}
+
+.containerSelect input,
+.containerSelect select {
+    width: 100%;
+    border-radius: 0.3rem;
+    background-color: rgba(255, 255, 255, 0.668);
+    transition: background-color 0.3s;
+}
+
+.containerSelect input:hover,
+.containerSelect select:hover {
+    background-color: rgba(255, 255, 255, 0.478);
+}
+
+.containerGame {
+    margin: 2rem;
+}
+
 .mainGames {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    width: 100%;
+    gap: 2rem;
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem 0.5rem 0 0;
+        margin-top: 0.3rem;
+    }
+
+    h2 {
+        margin: 0;
+        color: white;
+        text-align: center;
+        border-radius: 0 0 0.5rem 0.5rem;
+        text-shadow: 2px 2px 4px rgb(0, 0, 0);
+        margin-bottom: 0.3rem;
+    }
+
+    .key {
+        background-color: #3341559c;
+        cursor: pointer;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
+    }
+}
+
+@media (max-width: 400px) {
+    .containerSelect {
+        grid-template-columns: 1fr;
+
+    }
 }
