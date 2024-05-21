@@ -7,7 +7,7 @@ import { User } from "./User";
 export class Credential {
     @PrimaryGeneratedColumn()
     id: number
-    @Column({ unique: true })
+    @Column()
     username: string
     @Column()
     password: string
