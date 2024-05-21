@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import styles from "./SliceImg.module.css"
 import duty from "../../assets/img/callofduty.jpg"
 import dark from "../../assets/img/darksouls.jpg"

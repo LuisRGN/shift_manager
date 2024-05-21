@@ -34,7 +34,7 @@ export const AddTurn = ({isOpen, closeModal}: AddTurnProps) => {
         }))
         setError(prevError => ({
             ...prevError,
-            [name]: validateTurns({...input,[name]:value})[name]
+            [name]: validateTurns({...input,[name]:value})
         }))
     }
 

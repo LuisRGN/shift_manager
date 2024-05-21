@@ -3,6 +3,13 @@ import axios from 'axios';
 import { HEADER_HOST, HEADER_KEY, URL } from "../../config/ENVS";
 import styles from "./Games.module.css"
 
+interface Game {
+    genre: string
+    title: string
+    thumbnail: string
+    game_url: string
+}
+
 export const Games = () => {
     const [games, setGames] = useState([]);
     const [selectedGenre, setSelectedGenre] = useState('All');
@@ -35,20 +42,20 @@ export const Games = () => {
         fetchGames();
     }, [axiosGamesData]);
 
-    const filteredGames = games.filter(game =>
+    const filteredGames = games.filter((game: Game) =>
         (selectedGenre === 'All' || game.genre === selectedGenre) &&
         game.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     
-    const handleSearchChange = (event) => {
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
 
-    const handleGenreChange = (event) => {
+    const handleGenreChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedGenre(event.target.value);
     };
-    const handleButtonClick = (url) => {
+    const handleButtonClick = (url: string ) => {
         window.open(url, '_blank');
     };
     
@@ -84,7 +91,7 @@ export const Games = () => {
          </div>
             <div className={styles.containerGame}>
              <div className={styles.mainGames}>
-            {filteredGames.map((game, index) => (
+            {filteredGames.map((game: Game, index: number) => (
             <button key={index} className={styles.key} onClick={() => handleButtonClick(game.game_url)}>
                     <img src={game.thumbnail} alt={game.title} />
                     <h2>{game.title}</h2>

@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { SliceAbout } from "../../components/Slide/SliceAbout";
 
 const About = () => {

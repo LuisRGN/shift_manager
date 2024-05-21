@@ -35,7 +35,7 @@ const FormRegister: React.FC = () => {
         })
         setErrors(prevError => ({
             ...prevError, 
-            [name]: validateRegister({...input, [name]:value})[name]
+            [name]: validateRegister({...input, [name]:value})
         }))
     }
 
