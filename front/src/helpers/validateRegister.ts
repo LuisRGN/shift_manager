@@ -8,12 +8,12 @@ interface Register {
 }
 
 interface RegisterErrors {
-    username?: string
-    password?: string
-    email?: string
-    birthdate?: string
-    dni?: string
-    name?: string
+    username: string
+    password: string
+    email: string
+    birthdate: string
+    dni: string
+    name: string
 }
 
 export const validateRegister = (input: Register) => {
@@ -24,7 +24,14 @@ export const validateRegister = (input: Register) => {
     const nameRegExp = /^[^\s]{2,30}$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-    const errors: RegisterErrors = {};
+    const errors: RegisterErrors = {
+        name: "",
+        email: "",
+        birthdate: "",
+        dni: "",
+        username: "",
+        password: ""
+    };
 
     if (!input.name) errors.name = "Debe ingresar un nombre"
     else {

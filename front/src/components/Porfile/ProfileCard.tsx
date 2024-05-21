@@ -69,10 +69,8 @@ useEffect(() => {
         <img src={avatar} alt="avatar" className={styles.avatar}/>
         <h2>{userData2?.name ? userData2.name : userData?.user?.name}</h2>
         <h2>{userData2?.email ? userData2.email : userData?.user?.email}</h2>
-        <h2>{userData2?.birthdate ? userData2.birthdate.toDateString() : userData?.user?.birthdate.toDateString()}</h2>
+        <h2>{userData2?.birthdate ? new Date(userData2.birthdate).toDateString() : userData?.user?.birthdate ? new Date(userData.user.birthdate).toDateString() : ""}</h2>
         <h2>{userData2?.dni ? userData2.dni : userData?.user?.dni }</h2>
-
-
 
         <NavLink to={"/ProfileModify"}>
          <button>Modificar datos</button> 

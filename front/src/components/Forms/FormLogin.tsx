@@ -18,7 +18,7 @@ const FormLogin: React.FC = () => {
         username: "",
         password: ""
     })
-    const [errors, setErros] = useState({
+    const [errors, setErrors] = useState<{username: string, password: string}>({
         username: "",
         password: ""
     })
@@ -28,10 +28,8 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput({
         ...input, [name]:value
     })
-    setErros(prevError => ({
-        ...prevError, 
-        [name]: validateLogin({...input, [name]: value})
-    }))
+    const validationErrors = validateLogin({ ...input, [name]: value });
+        setErrors(validationErrors);
 }
 
 const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -74,11 +72,11 @@ const allFiledsComplete = Object.values(input).every(value => value.trim() !== "
                     <h1>Inicio de sesion</h1>
                     <label htmlFor="username">Nombre de usuario</label>
                     <input type="text" name="username" id="username" value={input.username} onChange={handleChange}/>
-                    <p style={{opacity: errors.username ? 1 : 0, minHeight: "20px"}}>{errors.username}</p>
+                    <p style={{opacity: errors.username ? 1 : 0, minHeight: "20px"}}>{errors.username || ""}</p>
 
                     <label htmlFor="password">Contraseña</label>
                     <input type="password" name="password" id="password"value={input.password} onChange={handleChange}/>
-                    <p style={{opacity: errors.password ? 1 : 0, minHeight: "20px"}}>{errors.password}</p>
+                    <p style={{opacity: errors.password ? 1 : 0, minHeight: "20px"}}>{errors.password || ""}</p>
 
                     <input type="submit" value="Enviar" disabled={!allFiledsComplete} className={styles.enviar}/>
 
