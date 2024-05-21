@@ -33,10 +33,8 @@ const FormRegister: React.FC = () => {
         setInput({
             ...input,[name]: value
         })
-        setErrors(prevError => ({
-            ...prevError, 
-            [name]: validateRegister({...input, [name]:value})
-        }))
+        const validationErrors = validateRegister({ ...input, [name]: value });
+        setErrors(validationErrors);
     }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

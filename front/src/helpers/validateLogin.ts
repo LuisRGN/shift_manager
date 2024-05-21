@@ -3,12 +3,15 @@ interface Login {
     password: string
 }
 interface LoginErrors {
-    username?: string;
-    password?: string;
+    username: string;
+    password: string;
 }
 
 export const validateLogin = (input: Login) => {
-    const errors: LoginErrors = {};
+    const errors: LoginErrors = {
+        username: "",
+        password: ""
+    };
 
     if (!input.username) errors.username = "Ingrese su nombre"
     if (!input.password) errors.password = "Ingrese la contraseña"
