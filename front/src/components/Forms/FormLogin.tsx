@@ -30,7 +30,7 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     })
     setErros(prevError => ({
         ...prevError, 
-        [name]: validateLogin({...input, [name]: value})[name]
+        [name]: validateLogin({...input, [name]: value})
     }))
 }
 

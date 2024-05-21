@@ -4,7 +4,7 @@ import avatar from "../../assets/avatar.jpeg"
 import styles from "./ProfileCard.module.css"
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
-import { State } from "../../interfaces/interfaces"
+import { State, UserData } from "../../interfaces/interfaces"
 import axios from "axios"
 import { DELETE_USER_URL } from "../../config/UrlConfig"
 import { setUserData, setUserTurns } from "../../redux/userSlice"
@@ -19,6 +19,7 @@ const ProfileCard = () => {
   const dispatch = useDispatch();
   const userId = useSelector((state: State) => state.user?.userData?.user?.id)
   const userData = useSelector((state: State) => state.user?.userData)
+  const userData2 = useSelector((state: UserData) => state.user?.userData)
 
   const handleDelete = async () => {
     Swal.fire({
@@ -66,10 +67,10 @@ useEffect(() => {
         <div className={styles.div1}>
           <h1>Perfil de usuario</h1>
         <img src={avatar} alt="avatar" className={styles.avatar}/>
-        <h2>{userData?.name ? userData.name : userData?.user?.name}</h2>
-        <h2>{userData?.email ? userData.email : userData?.user?.email}</h2>
-        <h2>{userData?.birthdate ? userData.birthdate : userData?.user?.birthdate}</h2>
-        <h2>{userData?.dni ? userData.dni : userData?.user?.dni }</h2>
+        <h2>{userData2?.name ? userData2.name : userData?.user?.name}</h2>
+        <h2>{userData2?.email ? userData2.email : userData?.user?.email}</h2>
+        <h2>{userData2?.birthdate ? userData2.birthdate.toDateString() : userData?.user?.birthdate.toDateString()}</h2>
+        <h2>{userData2?.dni ? userData2.dni : userData?.user?.dni }</h2>
 
 
 

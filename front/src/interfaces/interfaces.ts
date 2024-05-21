@@ -12,6 +12,18 @@ export interface State {
         turnsData: Turn[];
     }
 }
+
+export interface UserData {
+    user: {
+        userData: {
+            id: number;
+            name: string;
+            email: string;
+            birthdate: Date;
+            dni: number;
+        }
+    }
+}
 export interface Turn {
     id: number;
     date: Date;

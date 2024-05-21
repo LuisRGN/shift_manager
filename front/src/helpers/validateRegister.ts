@@ -1,4 +1,22 @@
-export const validateRegister = (input) => {
+interface Register {
+    username: string
+    password: string
+    email: string
+    birthdate: Date
+    dni: string
+    name: string
+}
+
+interface RegisterErrors {
+    username?: string
+    password?: string
+    email?: string
+    birthdate?: string
+    dni?: string
+    name?: string
+}
+
+export const validateRegister = (input: Register) => {
     const emailRegExp = /\S+@\S+\.\S+/;
     const birthdayRegExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
     const DNIRegExp = /^\d{7,11}$/;
@@ -6,7 +24,7 @@ export const validateRegister = (input) => {
     const nameRegExp = /^[^\s]{2,30}$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
-    const errors = {};
+    const errors: RegisterErrors = {};
 
     if (!input.name) errors.name = "Debe ingresar un nombre"
     else {
@@ -18,7 +36,7 @@ export const validateRegister = (input) => {
     }
     if (!input.birthdate) errors.birthdate = "Ingrese su cumpleaños"
     else {
-        if (!birthdayRegExp.test(input.birthdate)) errors.birthdate = "Debe ingresar una fecha valida"
+        if (!birthdayRegExp.test(input.birthdate.toISOString())) errors.birthdate = "Debe ingresar una fecha valida"
     }
 
     if (!input.dni) errors.dni = "Debe ingresar su numero de D.N.I"
