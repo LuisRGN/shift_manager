@@ -10,11 +10,11 @@ export class User {
     id: number
     @Column()
     name: string
-    @Column({ unique: true })
+    @Column()
     email: string
     @Column({ type: "date" })
     birthdate: Date
-    @Column("integer", { unique: true })
+    @Column()
     dni: number
 
     @OneToOne(() => Credential, credential => credential.user, { onDelete: "CASCADE" })
