@@ -2,7 +2,7 @@ interface Register {
     username: string
     password: string
     email: string
-    birthdate: Date
+    birthdate: string
     dni: string
     name: string
 }
@@ -36,7 +36,7 @@ export const validateRegister = (input: Register) => {
     }
     if (!input.birthdate) errors.birthdate = "Ingrese su cumpleaños"
     else {
-        if (!birthdayRegExp.test(input.birthdate.toISOString())) errors.birthdate = "Debe ingresar una fecha valida"
+        if (!birthdayRegExp.test(input.birthdate)) errors.birthdate = "Debe ingresar una fecha valida"
     }
 
     if (!input.dni) errors.dni = "Debe ingresar su numero de D.N.I"
