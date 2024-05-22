@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { getUserId, getUsers } from "../../controllers/Users/getUser";
-import { postLoginUser, postRegisterUser, } from "../../controllers/Users/postUser"
-import { putUser } from "../../controllers/Users/putUser";
+import { getUsers, getUserId } from "../../controllers/Users/getUser"
+import { postRegisterUser, postLoginUser } from "../../controllers/Users/postUser"
+import { putUser } from "../../controllers/Users/putUser"
 import { deleteUser } from "../../controllers/Users/deleteUser"
 
 export const users: Router = Router();
