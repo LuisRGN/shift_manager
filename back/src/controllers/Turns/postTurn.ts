@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { postTurnServices } from "../../services/indexServices/turnService";
+import { postTurnServices } from "../../services/Turns/postTurnServices";
 import { Turn } from "../../entities/Turn";
 
 /* ↓ Funcion del controlador para que un usuario cree un nuevo turno ↓ */

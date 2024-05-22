@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { deleteUser, getUserId, getUsers, postLoginUser, postRegisterUser, putUser } from "../../controllers/IndexControllers/userController";
+import { getUserId, getUsers } from "../../controllers/Users/getUser";
+import { postLoginUser, postRegisterUser, } from "../../controllers/Users/postUser"
+import { putUser } from "../../controllers/Users/putUser";
+import { deleteUser } from "../../controllers/Users/deleteUser"
 
 export const users: Router = Router();
 

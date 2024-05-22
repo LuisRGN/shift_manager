@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { deleteTurnServices } from "../../services/indexServices/turnService";
+import { deleteTurnServices } from "../../services/Turns/deleteTurnServices";
 
 /* ↓ Funcion del controlador para eliminar un turno ↓ */
 
