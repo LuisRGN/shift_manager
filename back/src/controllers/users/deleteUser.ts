@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { deleteUserServices } from "../../services/indexServices/userServices";
+import { deleteUserServices } from "../../services/Users/deleteUserServices";
 import { enviarCorreoDeEliminacionUsuario } from "../../services/nodemailer";
 import { credentialModel, userModel } from "../../config/repository";
 

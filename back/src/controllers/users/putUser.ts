@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { putChangeServices } from "../../services/indexServices/userServices";
+import { putChangeServices } from "../../services/Users/putUserServices";
 
 /* ↓ Funcion del controlador para modificar los  datos del usuario ↓ */
 

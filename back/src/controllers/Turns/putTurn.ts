@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { putTurnSevices } from "../../services/indexServices/turnService";
+import { putTurnSevices } from "../../services/Turns/putTurnServices";
 import { turnModel, userModel } from "../../config/repository";
 import { enviarCorreoDeCancelarTurno } from "../../services/nodemailer";
 

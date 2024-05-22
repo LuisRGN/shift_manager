@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getUserIdServices, getUserServices } from "../../services/indexServices/userServices";
+import { getUserIdServices, getUserServices } from "../../services/Users/getUserServices";
 import { User } from "../../entities/User";
 
 /* ↓ Funcion el controlador para buscar todos los usuarios  ↓ */

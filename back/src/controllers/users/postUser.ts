@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { postLoginServices, postReisterServices } from "../../services/indexServices/userServices";
+import { postLoginServices, postReisterServices } from "../../services/Users/postUserServices";
 import { validateCredential } from "../../services/Credentials/createCredentialsServices";
 import { User } from "../../entities/User";
 import { Credential } from "../../entities/Credential";

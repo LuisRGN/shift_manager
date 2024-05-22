@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getTurnIdServices, getTurnServices } from "../../services/indexServices/turnService";
+import { getTurnIdServices, getTurnServices } from "../../services/Turns/getTurnServices";
 import { Turn } from "../../entities/Turn";
 
 /* ↓ Funcion del controlador para traer todos los turnos ↓ */
