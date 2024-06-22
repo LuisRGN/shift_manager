@@ -1,5 +1,5 @@
 //import React from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import Home from './views/Home/Home'
@@ -13,9 +13,6 @@ import Profile from './views/Profile/Profile'
 import { ProfileModify } from './views/Profile/ProfileModify'
 
 const App = () => {
-
-  const{ pathname } = useLocation();
-  const showFooter = pathname !== "/Login" && pathname !== "/Register"
 
   return (
     <>
@@ -31,7 +28,7 @@ const App = () => {
         <Route path='/About' element={<About/>} />
         <Route path='/*' element={<Error/>} />
       </Routes>
-      {showFooter &&  <Footer/>}
+      <Footer/>
     </>
   )
 }

@@ -93,3 +93,17 @@
     border-radius: 1rem 0 0 1rem;
     box-shadow: 0 0.1rem 0.2rem #00000033, 0 0.1rem 0.5rem #0000004d, 0 0.2rem 1.5rem #00000066;
 }
+
+@media (max-width: 768px) {
+    .main0 {
+        height: auto;
+        justify-content: center;
+        padding: 2rem;
+        background-image: none;
+    }
+
+    .form {
+        width: 100%;
+        max-width: 300px;
+    }
+}

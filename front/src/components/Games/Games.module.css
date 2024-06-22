@@ -60,6 +60,35 @@
     }
 }
 
+.pagination {
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button {
+    cursor: pointer;
+    background-color: #3b424ebb;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    color: white;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0);
+}
+
+.pagination button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pagination button.active {
+    background-color: #313843;
+}
+
+
 @media (max-width: 400px) {
     .containerSelect {
         grid-template-columns: 1fr;

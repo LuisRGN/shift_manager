@@ -55,3 +55,15 @@
         transform: translateX(-50%);
     }
 }
+
+@media (max-width: 768px) {
+    .tag img {
+        width: 10rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tag img {
+        width: 8rem;
+    }
+}
